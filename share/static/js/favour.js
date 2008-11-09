@@ -1,7 +1,7 @@
 
 var favour_jsorb = new JSORB.Client ({
     base_url: "http://localhost:3000/jsorb/",
-    base_namespace: ""
+    base_namespace: "/favour/controller/"
 });
 
 function call(req, callback){
@@ -57,13 +57,13 @@ function selected_favorite_color(clicked) {
     var bad  = $("#color_" + opposite_of(clicked)).css("background-color");
     call(
         {
-            method: '/favour/controller/color/add_color_pair',
+            method: 'color/add_color_pair',
             params: [good,bad],
         },
         function(){
             call(
                 {
-                    method: '/favour/controller/color/list_favorites',
+                    method: 'color/list_favorites',
                     params: [],
                 },
                 function(color_list){
@@ -73,7 +73,7 @@ function selected_favorite_color(clicked) {
                     });
                     call(
                         {
-                            method: '/favour/controller/color/get_colors_to_compare',
+                            method: 'color/get_colors_to_compare',
                             params: [],
                         },
                         function(colors){
