@@ -1,0 +1,57 @@
+* {
+    background-color: #222;
+    color: #fff;
+    font-size: 16px;
+    font-family: Sans;
+}
+
+body {
+    width: 1000px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.error {
+    background-color: #660000;
+    color: #fff;
+    padding: 1em;
+    width: 70%;
+    border: 1px solid #f00;
+    margin: 1em;
+}
+
+.message {
+    background-color: #006600;
+    color: #fff;
+    padding: 1em;
+    margin: 1em;
+    width: 70%;
+    border: 1px solid #0f0;
+}
+
+#intromsg {
+    float: clear;
+    background-color: #147;
+    color: #fff;
+    padding: 1em;
+    margin-left: 50px;
+    margin-right: 50px;
+    border: 1px solid #39c;
+    width: 900px;
+}
+
+#menubar {}
+
+#colors {
+    table-border: 0;
+    width: 1000px;
+}
+
+.color {
+    padding: 250px;
+}
+
+.mini_color {
+    padding: 10px;
+    margin-bottom: 5px;
+}

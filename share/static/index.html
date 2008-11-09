@@ -1,4 +1,39 @@
-<html>
-  <head><title>Hi</title></head>
-  <body><h1>It works!</h1></body>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>Favour</title>
+    <link rel="stylesheet" href="/static/css/main.css" type="text/css" />
+    <script src="/static/js/jquery-1.2.6.js" type="text/javascript"></script>
+    <script src="/static/js/favour.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(document).ready(function (){
+         reset_favorite_colors();
+         setup_color_callbacks();
+         load_initial_colors();
+      });
+    </script>
+  </head>
+  <body>
+    <div id="menubar">
+        <img src="/static/img/FavourBETA.png" alt="Favour logo" />
+    </div>
+
+    <p id="intromsg">
+      Favour is a site that lets you determine your favorite color.  You'll
+      see two colors at a time; just click the one you like better.  In no time,
+      you'll see your favorites appear on the left.
+    </p>
+
+    <table id="colors">
+      <tr>
+        <td><div class="color" id="color_a" /></td>
+        <td><div class="color" id="color_b" /></td>
+        <td id="favorite_colors">
+          <div class="mini_color" id="test_color" />
+          <div class="mini_color" id="test_color_2" />
+          <div class="mini_color" id="test_color_3" />
+        </td>
+      </tr>
+    </table>
+  </body>
 </html>
