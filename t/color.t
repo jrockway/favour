@@ -6,8 +6,18 @@ use Test::TableDriven (
         '#000'    => '000000',
         '#000000' => '000000',
         '#abcdef' => 'abcdef',
+        '#123'    => '112233',
         '1'       => '000001',
-        '#fff'    => 'f0f0f0',
+        '#fff'    => 'ffffff',
+    },
+    rgb_to_hex => {
+        'rgb(255, 0, 0)' => 'ff0000',
+        'rgb(0, 255, 0)' => '00ff00',
+        'rgb(0, 0, 255)' => '0000ff',
+        'rgb(1, 0, 0)'   => '010000',
+        'rgb(0, 1, 0)'   => '000100',
+        'rgb(0, 0, 1)'   => '000001',
+        'rgb(3, 2, 1)'   => '030201',
     },
     eq => [
         [['#000', 0] => 1],
@@ -15,6 +25,11 @@ use Test::TableDriven (
 );
 
 sub hex_to_hex {
+    my ($in) = @_;
+    return Favour::Schema::Color->new(code => $in)->as_hex;
+}
+
+sub rgb_to_hex {
     my ($in) = @_;
     return Favour::Schema::Color->new(code => $in)->as_hex;
 }

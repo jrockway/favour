@@ -22,7 +22,10 @@ coerce ColorCode => from 'Str' => via {
             return hex($1);
         }
         when(/^#([A-Z0-9])([A-Z0-9])([A-Z0-9])/){
-            return hex("${1}0${2}0${3}0");
+            return hex("$1$1$2$2$3$3");
+        }
+        when(/^RGB\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/){
+            return $1 * 65536 + $2 * 256 + $3;
         }
         when(Scalar::Util::looks_like_number($_)){ # OH HAI MOOSE. IS NOT STR.
             return $_;
