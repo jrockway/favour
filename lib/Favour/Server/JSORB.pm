@@ -1,11 +1,8 @@
 package Favour::Server::JSORB;
 use Favour::Controller::Color;
 use JSORB;
-use JSORB::Namespace;
-use JSORB::Interface;
-use JSORB::Method;
+use JSORB::Reflector::Class;
 use JSORB::Dispatcher::Path;
-use JSORB::Dispatcher::Traits::WithInvocantFactory;
 use JSON::RPC::Common::Marshal::HTTP;
 use Moose;
 
@@ -17,33 +14,9 @@ has 'jsorb_namespace' => (
 
 sub _build_jsorb_namespace {
     my $self = shift;
-    return JSORB::Namespace->new(
-        name     => 'Favour',
-        elements => [
-            JSORB::Namespace->new(
-                name     => 'Controller',
-                elements => [
-                    JSORB::Interface->new(
-                        name       => 'Color',
-                        procedures => [
-                            JSORB::Method->new(
-                                name => 'add_color_pair',
-                                spec => [ 'Str' => 'Str' => 'Unit' ],
-                            ),
-                            JSORB::Method->new(
-                                name => 'list_favorites',
-                                spec => [ 'Unit' => 'ArrayRef' ],
-                            ),
-                            JSORB::Method->new(
-                                name => 'get_colors_to_compare',
-                                spec => [ 'Unit' => 'ArrayRef' ],
-                            ),
-                        ],
-                    ),
-                ],
-            ),
-        ],
-    );
+    return JSORB::Reflector::Class->new(
+        introspector => Favour::Controller::Color->meta,
+    )->namespace;
 }
 
 sub serve {
