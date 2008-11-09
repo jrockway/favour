@@ -1,7 +1,8 @@
 package Favour::Schema::User;
+use Favour::Schema::PreferenceGraph;
 use Moose;
 
-has 'colors' => (
+has 'color_preferences' => (
     is       => 'ro',
     isa      => 'Favour::Schema::PreferenceGraph',
     required => 1,

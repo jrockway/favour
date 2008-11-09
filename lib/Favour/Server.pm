@@ -1,6 +1,7 @@
 package Favour::Server;
 use HTTP::Engine;
 use Favour::Server::Static;
+use Favour::Server::JSORB;
 
 use Moose::Autobox;
 use MooseX::Types::Path::Class qw(Dir);
@@ -28,6 +29,12 @@ has 'static' => (
     is         => 'ro',
     isa        => 'Favour::Server::Static',
     lazy_build => 1,
+);
+
+has 'jsorb' => (
+    is      => 'ro',
+    isa     => 'Favour::Server::JSORB',
+    default => sub { Favour::Server::JSORB->new },
 );
 
 has 'engine' => (
@@ -77,6 +84,9 @@ sub _handle_request {
         }
         when(m{^/static/(.+)$}){
             $response = $self->static->resource($1)->serve($context);
+        }
+        when(m{^/jsorb/?$}){
+            $response = $self->jsorb->serve($context, $1);
         }
     }
     return $response || die 'no response';
