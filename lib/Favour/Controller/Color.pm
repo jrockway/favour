@@ -36,7 +36,10 @@ sub _color_return {
 
 sub list_favorites {
     my $self = shift;
-    _color_return( $self->context->current_user->color_preferences->favorites );
+    _color_return(
+        reverse sort { $a->worse->size <=> $b->worse->size }
+          $self->context->current_user->color_preferences->favorites,
+    );
 }
 
 sub random_color {
