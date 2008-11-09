@@ -9,34 +9,62 @@
     <script src="/static/js/favour.js" type="text/javascript"></script>
 
     <script type="text/javascript">
+      // <![CDATA[
       $(document).ready(function (){
          reset_favorite_colors();
          load_initial_colors();
          enable_color_callbacks();
+         $("#content_area").css("display", "block");
       });
+      // ]]>
     </script>
   </head>
   <body>
     <div id="menubar">
-        <img src="/static/img/FavourBETA.png" alt="Favour logo" />
+      <img src="/static/img/FavourBETA.png" alt="Favour logo" />
     </div>
+    <noscript>
+      <p class="error">
+        This site requires JavaScript to be enabled.
+      </p>
+    </noscript>
 
-    <p id="intromsg">
-      Favour is a site that lets you determine your favorite color.  You'll
-      see two colors at a time; just click the one you like better.  In no time,
-      you'll see your favorites appear on the right.
-    </p>
+    <div id="content_area" style="display: none;">
+      <p id="intromsg">
+        Favour is a site that lets you determine your favorite color.  You'll
+        see two colors at a time; just click the one you like better.  In no time,
+        you'll see your favorites appear on the right.
+      </p>
 
-    <table id="colors">
-      <tr>
-        <td><div class="color" id="color_a" /></td>
-        <td><div class="color" id="color_b" /></td>
-        <td id="favorite_colors">
-          <div class="mini_color" id="test_color" />
-          <div class="mini_color" id="test_color_2" />
-          <div class="mini_color" id="test_color_3" />
-        </td>
-      </tr>
-    </table>
+      <table id="colors">
+        <tr>
+          <td><div class="color" id="color_a" /></td>
+          <td><div class="color" id="color_b" /></td>
+          <td id="favorite_colors">
+            <div class="mini_color" id="test_color" />
+            <div class="mini_color" id="test_color_2" />
+            <div class="mini_color" id="test_color_3" />
+          </td>
+        </tr>
+      </table>
+    </div>
+    <hr class="bottom_rule" />
+    <div id="footer">
+      <p class="footer_left">
+        Powered by:
+        <a href="http://search.cpan.org/dist/HTTP-Engine/">HTTP::Engine</a>
+        <a href="http://www.iinteractive.com/kiokudb/">KiokuDB</a>
+        <a href="http://www.iinteractive.com/moose/">Moose</a>
+      </p>
+      <p class="footer_center">
+        Copyright &copy; 2008 Jonathan Rockway
+      </p>
+
+      <p class="footer_right">
+        <a href="http://git.jrock.us/?p=Favour.git;a=summary">
+          Favour is Open Source!
+        </a>
+      </p>
+    </div>
   </body>
 </html>
