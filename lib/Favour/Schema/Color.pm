@@ -50,4 +50,7 @@ sub as_hex {
     return sprintf("%06x", $self->code);
 }
 
+__PACKAGE__->meta->make_immutable;
+no Moose;
+
 1;
