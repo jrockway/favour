@@ -1,4 +1,4 @@
-package Favour::Schema::ColorPair;
+package Favour::Schema::ColorPreference;
 use Moose;
 use Favour::Schema::Color;
 

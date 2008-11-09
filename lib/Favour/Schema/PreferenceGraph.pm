@@ -1,7 +1,7 @@
-package Favour::Schema::ColorPairSet;
+package Favour::Schema::PreferenceGraph;
 use Moose;
 use MooseX::AttributeHelpers;
-use Favour::Schema::ColorPair;
+use Favour::Schema::ColorPreference;
 use Favour::Schema::Ranked;
 use Set::Object;
 

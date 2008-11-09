@@ -3,10 +3,10 @@ use Moose;
 
 has 'colors' => (
     is       => 'ro',
-    isa      => 'Favour::Schema::ColorPairSet',
+    isa      => 'Favour::Schema::PreferenceGraph',
     required => 1,
     default => sub {
-        Favour::Schema::ColorPairSet->new;
+        Favour::Schema::PreferenceGraph->new;
     },
 );
 

@@ -3,20 +3,20 @@ use warnings;
 use Test::More tests => 5;
 
 use Favour::Schema::Color;
-use Favour::Schema::ColorPair;
-use Favour::Schema::ColorPairSet;
+use Favour::Schema::ColorPreference;
+use Favour::Schema::PreferenceGraph;
 
 my ($red, $orange, $yellow, $green, $blue, $violet) = map { # emacs doesn't have indigo
     Favour::Schema::Color->new( code => "#$_" );
 } qw/ff0000 ffa500 ffff00 00ff00 0000ff 9400d3/;
 
 sub pair($$) {
-    Favour::Schema::ColorPair->new(
+    Favour::Schema::ColorPreference->new(
         better => $_[0], worse => $_[1],
     );
 }
 
-my $set = Favour::Schema::ColorPairSet->new;
+my $set = Favour::Schema::PreferenceGraph->new;
 ok $set;
 
 $set->insert( pair $green, $blue );
