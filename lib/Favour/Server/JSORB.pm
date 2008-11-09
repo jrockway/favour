@@ -28,7 +28,15 @@ sub _build_jsorb_namespace {
                         procedures => [
                             JSORB::Method->new(
                                 name => 'add_color_pair',
-                                spec => [ 'Any' => 'Any' ],
+                                spec => [ 'Str' => 'Str' => 'Unit' ],
+                            ),
+                            JSORB::Method->new(
+                                name => 'list_favorites',
+                                spec => [ 'Unit' => 'ArrayRef' ],
+                            ),
+                            JSORB::Method->new(
+                                name => 'get_colors_to_compare',
+                                spec => [ 'Unit' => 'ArrayRef' ],
                             ),
                         ],
                     ),
