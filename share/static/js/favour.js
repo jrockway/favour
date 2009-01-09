@@ -8,6 +8,11 @@ function call(req, callback){
     favour_jsorb.call(favour_jsorb.new_request(req), callback);
 }
 
+function page_is_ready(){
+    reset_favorite_colors();
+    load_initial_colors();
+}
+
 function reset_favorite_colors(){
     $("#favorite_colors").html('');
 }
@@ -23,7 +28,18 @@ function set_colors(a, b){
 }
 
 function load_initial_colors(){
-    set_colors("green", "red");
+    call(
+        {
+            method: 'color/get_colors_to_compare',
+            params: [],
+        },
+        function(colors){
+            set_colors("#" + colors[0], "#" + colors[1]);
+            $("#content_area").css("display", "block");
+            $("#loading").hide();
+            enable_color_callbacks();
+        }
+    );
 }
 
 function opposite_of(a_or_b){

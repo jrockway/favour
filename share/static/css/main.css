@@ -11,6 +11,16 @@ body {
     margin-right: 40px;
 }
 
+#loading {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 10px;
+    padding: 1px;
+    color: #ffffff;
+    background-color: #ff1111q;
+}
+
 .error {
     background-color: #660000;
     color: #fff;
